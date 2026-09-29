@@ -20,24 +20,97 @@ const Person = ({ x, y, s = 1, skin = "#C98B5E", cloth, hair = "#2B1B12", head =
   </g>
 );
 
-const FamilyHome = () => (
-  <svg viewBox="0 0 460 400" className="art" role="img" aria-label="Family standing outside their new home">
-    <circle cx="230" cy="190" r="175" fill="#FFE3A3" />
-    <g stroke="#F5A623" strokeWidth="2" opacity=".5">{[...Array(12)].map((_, i) => <line key={i} x1="230" y1="190" x2={230 + 215 * Math.cos((i * Math.PI) / 6)} y2={190 + 215 * Math.sin((i * Math.PI) / 6)} />)}</g>
-    <rect x="40" y="330" width="380" height="14" rx="7" fill="#2E9E6B" />
-    <path d="M70 150 L230 50 L390 150 Z" fill="#0E3B43" />
-    <rect x="95" y="150" width="270" height="180" fill="#FFF4DC" stroke="#0E3B43" strokeWidth="5" />
-    <rect x="120" y="185" width="50" height="50" fill="#9FD3C7" stroke="#0E3B43" strokeWidth="5" />
-    <rect x="290" y="185" width="50" height="50" fill="#9FD3C7" stroke="#0E3B43" strokeWidth="5" />
-    <rect x="205" y="240" width="50" height="90" fill="#C8642D" stroke="#0E3B43" strokeWidth="5" />
-    <path d="M100 148h260" stroke="#F5A623" strokeWidth="6" strokeDasharray="4 10" />
-    <Person x={150} y={250} cloth="#E4572E" head="bun" hair="#1E1410" />
-    <Person x={205} y={262} s={0.7} cloth="#F5A623" skin="#B97A50" h={55} />
-    <Person x={265} y={250} cloth="#2E9E6B" />
-    <Person x={318} y={262} s={0.6} cloth="#17565F" skin="#B97A50" h={50} />
-    <g transform="translate(330 60) rotate(8)"><rect width="110" height="46" rx="10" fill="#fff" /><text x="44" y="20" textAnchor="middle" fontSize="10" fill="#0E3B43">Griha Pravesh</text><text x="44" y="36" textAnchor="middle" fontSize="12" fontWeight="700" fill="#1F7A50">Loan sanctioned ✓</text></g>
-  </svg>
-);
+const HeroScene = () => {
+  const flags = ["#F5A623", "#FFF9E6", "#2E9E6B", "#E4572E"];
+  const bunting = [...Array(12)].map((_, i) => {
+    const t = (i + 1) / 13, u = 1 - t;
+    const x = u * u * 40 + 2 * u * t * 320 + t * t * 610;
+    const y = u * u * 96 + 2 * u * t * 140 + t * t * 70;
+    return <path key={i} d={`M${x - 9} ${y} h18 l-9 20z`} fill={flags[i % 4]} stroke="#0F4C5C" strokeWidth="1" />;
+  });
+  return (
+    <svg viewBox="0 0 640 400" className="art" role="img" aria-label="A shop and a family home side by side, with a proud family head holding house keys and loan papers">
+      {/* Festive backdrop: glowing sun + rays */}
+      <g>
+        <circle cx="320" cy="200" r="185" fill="#FFE3A3" />
+        <g stroke="#F59E0B" strokeWidth="2" opacity=".45">
+          {[...Array(18)].map((_, i) => <line key={i} x1="320" y1="200" x2={320 + 340 * Math.cos((i * Math.PI) / 9)} y2={200 + 340 * Math.sin((i * Math.PI) / 9)} />)}
+        </g>
+        {[[60, 60], [600, 40], [560, 190], [24, 210], [300, 40]].map(([x, y], i) => <circle key={i} cx={x} cy={y} r={i % 2 ? 4 : 6} fill="#F59E0B" opacity=".7" />)}
+      </g>
+
+      {/* Ground */}
+      <rect x="0" y="372" width="640" height="28" fill="#2E9E6B" />
+      <rect x="0" y="372" width="640" height="5" fill="#1F7A50" />
+
+      {/* LEFT: Vyapar - the store */}
+      <g id="shop">
+        <rect x="30" y="200" width="240" height="172" fill="#FFFDF9" stroke="#0F4C5C" strokeWidth="5" />
+        <rect x="60" y="136" width="180" height="30" rx="6" fill="#0F4C5C" />
+        <text x="150" y="157" textAnchor="middle" fontSize="15" fontWeight="700" fill="#FFD700" fontFamily="Bricolage Grotesque, sans-serif">₹ LAXMI STORES</text>
+        {[...Array(8)].map((_, i) => <path key={i} d={`M${30 + i * 30} 168 h30 v24 a15 15 0 0 1 -30 0z`} fill={i % 2 ? "#FFFDF9" : "#F59E0B"} stroke="#0F4C5C" strokeWidth="2" />)}
+        <rect x="45" y="214" width="110" height="88" rx="4" fill="#FFE9B3" stroke="#0F4C5C" strokeWidth="4" />
+        {[0, 1, 2].map((r) => [0, 1, 2, 3, 4].map((c) => <rect key={r + "-" + c} x={52 + c * 20} y={221 + r * 27} width="15" height="21" rx="3" fill={["#F59E0B", "#2E9E6B", "#0F4C5C", "#E4572E"][(r + c) % 4]} />))}
+        <rect x="170" y="272" width="54" height="100" fill="#FFC94A" stroke="#0F4C5C" strokeWidth="4" />
+        <rect x="178" y="280" width="38" height="92" fill="#0F4C5C" />
+        {/* growth chart panel */}
+        <rect x="172" y="212" width="80" height="52" rx="6" fill="#0F4C5C" />
+        {[10, 20, 30, 40].map((h, i) => <rect key={i} x={181 + i * 15} y={256 - h} width="10" height={h} rx="2" fill={i === 3 ? "#FFD700" : "#9FD3C7"} />)}
+        <path d="M180 240 L205 228 L222 234 L245 218" stroke="#FFFDF9" strokeWidth="3" fill="none" strokeLinecap="round" />
+        <path d="M238 216 l9 1 -3 9z" fill="#FFFDF9" />
+        {/* stocked sacks */}
+        {[46, 84, 122].map((x, i) => (
+          <g key={x}><rect x={x} y={334 - (i === 1 ? 10 : 0)} width="34" height={38 + (i === 1 ? 10 : 0)} rx="9" fill="#E8D5A8" stroke="#0F4C5C" strokeWidth="3" /><text x={x + 17} y={360} textAnchor="middle" fontSize="15" fontWeight="700" fill="#0F4C5C">₹</text></g>
+        ))}
+      </g>
+
+      {/* Connecting courtyard gate between shop and home */}
+      <g>
+        <rect x="266" y="236" width="104" height="136" fill="#17565F" />
+        <rect x="258" y="228" width="120" height="14" rx="4" fill="#0F4C5C" />
+      </g>
+
+      {/* RIGHT: Sapno ka Ghar - the family home */}
+      <g id="home">
+        <polygon points="356,228 486,128 616,228" fill="#0F4C5C" />
+        <path d="M372 226 H600" stroke="#F59E0B" strokeWidth="5" strokeDasharray="3 9" strokeLinecap="round" />
+        <rect x="372" y="228" width="228" height="144" fill="#FFFDF9" stroke="#0F4C5C" strokeWidth="5" />
+        {[388, 538].map((x) => <rect key={x} x={x} y="250" width="44" height="44" fill="#FFC94A" stroke="#0F4C5C" strokeWidth="5" />)}
+        <path d="M388 272 h44 M410 250 v44 M538 272 h44 M560 250 v44" stroke="#0F4C5C" strokeWidth="3" />
+        <rect x="458" y="288" width="56" height="84" rx="4" fill="#C8642D" stroke="#0F4C5C" strokeWidth="5" />
+        <circle cx="506" cy="332" r="3" fill="#FFD700" />
+        {/* toran: marigold garland over door */}
+        <path d="M452 292 Q486 316 520 292" fill="none" stroke="#2E9E6B" strokeWidth="7" strokeDasharray="7 5" transform="translate(0 6)" />
+        <path d="M452 292 Q486 316 520 292" fill="none" stroke="#FFC94A" strokeWidth="9" strokeLinecap="round" strokeDasharray="0.1 11" />
+        {/* rangoli */}
+        <ellipse cx="486" cy="386" rx="36" ry="8" fill="#E4572E" />
+        <ellipse cx="486" cy="386" rx="24" ry="5" fill="#FFC94A" />
+        <ellipse cx="486" cy="386" rx="10" ry="3" fill="#FFFDF9" />
+      </g>
+
+      {/* Festive bunting stretched across both */}
+      <path d="M40 96 Q320 140 610 70" fill="none" stroke="#0F4C5C" strokeWidth="2" />
+      {bunting}
+
+      {/* Family in front */}
+      <Person x={250} y={302} s={0.95} h={50} cloth="#F59E0B" skin="#B97A50" />
+      <Person x={395} y={250} s={1.3} h={70} cloth="#E4572E" head="bun" hair="#1E1410" />
+      <Person x={450} y={302} s={0.95} h={50} cloth="#2E9E6B" head="bun" hair="#1E1410" skin="#B97A50" />
+      <Person x={540} y={254} s={1.25} h={70} cloth="#FFFDF9" head="turban" skin="#B97A50" />
+      {/* Head of family, centre stage */}
+      <Person x={320} y={221} s={1.45} h={80} cloth="#FFFDF9" />
+      <path d="M310 224 L334 262" stroke="#F59E0B" strokeWidth="9" strokeLinecap="round" />
+      {/* raised arm with house keys */}
+      <path d="M340 240 L374 212" stroke="#C98B5E" strokeWidth="10" strokeLinecap="round" />
+      <g transform="translate(374 206)" fill="none" stroke="#F59E0B" strokeWidth="3.5" strokeLinecap="round">
+        <circle cx="0" cy="0" r="7" /><path d="M0 -7 v-12 M0 -19 h7 M0 -13 h5" />
+      </g>
+      {/* other arm with loan papers */}
+      <path d="M300 240 L292 268" stroke="#C98B5E" strokeWidth="10" strokeLinecap="round" />
+      <g transform="rotate(-8 290 270)"><rect x="278" y="258" width="24" height="32" rx="2" fill="#FFFDF9" stroke="#0F4C5C" strokeWidth="2.5" /><path d="M283 266h14M283 272h14M283 278h9" stroke="#2E9E6B" strokeWidth="2.5" /></g>
+    </svg>
+  );
+};
 
 const KiranaShop = () => (
   <svg viewBox="0 0 320 220" className="art art-sm" role="img" aria-label="Kirana shop owner managing stock">
@@ -138,9 +211,15 @@ export default function App() {
           </ul>
         </div>
         <div className="hero-art">
-          <FamilyHome />
-          <div className="float f1"><b><small>rates starting from</small></b>7%*</div>
-          <div className="float f2"><b>₹48,00,000</b><small>Approved!</small></div>
+          <HeroScene />
+          <div className="float badge badge-biz">
+            <span className="tick gold" aria-hidden="true">₹</span>
+            <div><b>Inventory Stocked</b><small>Working Capital Disbursed</small></div>
+          </div>
+          <div className="float badge badge-home">
+            <span className="tick" aria-hidden="true">✓</span>
+            <div><b>Griha Pravesh Ready</b><small>₹48,00,000 Sanctioned</small></div>
+          </div>
         </div>
       </header>
 
