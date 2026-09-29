@@ -34,7 +34,7 @@ const FamilyHome = () => (
     <Person x={150} y={250} cloth="#E4572E" head="bun" hair="#1E1410" />
     <Person x={205} y={262} s={0.7} cloth="#F5A623" skin="#B97A50" h={55} />
     <Person x={265} y={250} cloth="#2E9E6B" />
-    <Person x={318} y={262} s={0.6} cloth="#7A5CFA" skin="#B97A50" h={50} />
+    <Person x={318} y={262} s={0.6} cloth="#17565F" skin="#B97A50" h={50} />
     <g transform="translate(330 60) rotate(8)"><rect width="88" height="46" rx="10" fill="#fff" /><text x="44" y="20" textAnchor="middle" fontSize="10" fill="#0E3B43">Griha Pravesh</text><text x="44" y="36" textAnchor="middle" fontSize="12" fontWeight="700" fill="#2E9E6B">Loan sanctioned ✓</text></g>
   </svg>
 );
@@ -45,7 +45,7 @@ const KiranaShop = () => (
     <rect x="40" y="70" width="240" height="126" fill="#FFF4DC" stroke="#0E3B43" strokeWidth="4" />
     <path d="M30 70h260l-16-40H46z" fill="#E4572E" />
     {[0, 1, 2, 3, 4, 5].map((i) => <path key={i} d={`M${46 + i * 40} 30h40l-4 40h-40z`} fill={i % 2 ? "#FFF4DC" : "#E4572E"} />)}
-    {[0, 1, 2].map((r) => [0, 1, 2, 3].map((c) => <rect key={r + "" + c} x={56 + c * 28} y={92 + r * 30} width="20" height="22" rx="3" fill={["#F5A623", "#2E9E6B", "#7A5CFA", "#E4572E"][(r + c) % 4]} />))}
+    {[0, 1, 2].map((r) => [0, 1, 2, 3].map((c) => <rect key={r + "" + c} x={56 + c * 28} y={92 + r * 30} width="20" height="22" rx="3" fill={["#F5A623", "#2E9E6B", "#17565F", "#E4572E"][(r + c) % 4]} />))}
     <rect x="165" y="140" width="100" height="56" fill="#0E3B43" />
     <Person x={215} y={112} cloth="#fff" head="turban" skin="#B97A50" h={50} s={0.9} />
     <text x="215" y="176" textAnchor="middle" fontSize="11" fill="#FFC94A" fontWeight="700">₹ Stock ready</text>
@@ -76,7 +76,7 @@ const faqs = [
 const stories = [
   ["Priya & Amit", "Homebuyers, Bengaluru", "We compared 6 offers in one evening and saved 0.4% on our rate. Our loan expert handled the builder paperwork.", "#E4572E"],
   ["Rajesh K.", "Textile manufacturer, Surat", "Cash-credit limit was sanctioned in 4 days. Earlier my bank kept asking for the same papers again and again.", "#2E9E6B"],
-  ["Sunita Devi", "Kirana owner, Jaipur", "I needed money to stock up before Diwali. They explained everything in Hindi and there were no hidden charges.", "#7A5CFA"],
+  ["Sunita Devi", "Kirana owner, Jaipur", "I needed money to stock up before Diwali. They explained everything in Hindi and there were no hidden charges.", "#17565F"],
 ];
 
 export default function App() {
