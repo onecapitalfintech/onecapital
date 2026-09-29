@@ -35,7 +35,7 @@ const FamilyHome = () => (
     <Person x={205} y={262} s={0.7} cloth="#F5A623" skin="#B97A50" h={55} />
     <Person x={265} y={250} cloth="#2E9E6B" />
     <Person x={318} y={262} s={0.6} cloth="#17565F" skin="#B97A50" h={50} />
-    <g transform="translate(330 60) rotate(8)"><rect width="88" height="46" rx="10" fill="#fff" /><text x="44" y="20" textAnchor="middle" fontSize="10" fill="#0E3B43">Griha Pravesh</text><text x="44" y="36" textAnchor="middle" fontSize="12" fontWeight="700" fill="#2E9E6B">Loan sanctioned ✓</text></g>
+    <g transform="translate(330 60) rotate(8)"><rect width="88" height="46" rx="10" fill="#fff" /><text x="44" y="20" textAnchor="middle" fontSize="10" fill="#0E3B43">Griha Pravesh</text><text x="44" y="36" textAnchor="middle" fontSize="12" fontWeight="700" fill="#1F7A50">Loan sanctioned ✓</text></g>
   </svg>
 );
 
@@ -74,8 +74,8 @@ const faqs = [
   ["Is there any fee to use the service?", "Comparing offers is free. Any lender processing fee is shown upfront, before you choose."],
 ];
 const stories = [
-  ["Priya & Amit", "Homebuyers, Bengaluru", "We compared 6 offers in one evening and saved 0.4% on our rate. Our loan expert handled the builder paperwork.", "#E4572E"],
-  ["Rajesh K.", "Textile manufacturer, Surat", "Cash-credit limit was sanctioned in 4 days. Earlier my bank kept asking for the same papers again and again.", "#2E9E6B"],
+  ["Priya & Amit", "Homebuyers, Bengaluru", "We compared 6 offers in one evening and saved 0.4% on our rate. Our loan expert handled the builder paperwork.", "#B23A17"],
+  ["Rajesh K.", "Textile manufacturer, Surat", "Cash-credit limit was sanctioned in 4 days. Earlier my bank kept asking for the same papers again and again.", "#1F7A50"],
   ["Sunita Devi", "Kirana owner, Jaipur", "I needed money to stock up before Diwali. They explained everything in Hindi and there were no hidden charges.", "#17565F"],
 ];
 
