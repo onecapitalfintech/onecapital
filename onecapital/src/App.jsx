@@ -35,7 +35,7 @@ const FamilyHome = () => (
     <Person x={205} y={262} s={0.7} cloth="#F5A623" skin="#B97A50" h={55} />
     <Person x={265} y={250} cloth="#2E9E6B" />
     <Person x={318} y={262} s={0.6} cloth="#17565F" skin="#B97A50" h={50} />
-    <g transform="translate(330 60) rotate(8)"><rect width="88" height="46" rx="10" fill="#fff" /><text x="44" y="20" textAnchor="middle" fontSize="10" fill="#0E3B43">Griha Pravesh</text><text x="44" y="36" textAnchor="middle" fontSize="12" fontWeight="700" fill="#1F7A50">Loan sanctioned ✓</text></g>
+    <g transform="translate(330 60) rotate(8)"><rect width="110" height="46" rx="10" fill="#fff" /><text x="44" y="20" textAnchor="middle" fontSize="10" fill="#0E3B43">Griha Pravesh</text><text x="44" y="36" textAnchor="middle" fontSize="12" fontWeight="700" fill="#1F7A50">Loan sanctioned ✓</text></g>
   </svg>
 );
 
@@ -139,7 +139,7 @@ export default function App() {
         </div>
         <div className="hero-art">
           <FamilyHome />
-          <div className="float f1"><b><small>rates starting from</small></b>8.1%*</div>
+          <div className="float f1"><b><small>rates starting from</small></b>7%*</div>
           <div className="float f2"><b>₹48,00,000</b><small>Approved!</small></div>
         </div>
       </header>
