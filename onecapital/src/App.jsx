@@ -139,8 +139,8 @@ export default function App() {
         </div>
         <div className="hero-art">
           <FamilyHome />
-          <div className="float f1"><b>8.1%*</b><small>rates starting from</small></div>
-          <div className="float f2"><b>₹48,00,000</b><small>Home loan approved</small></div>
+          <div className="float f1"><b><small>rates starting from</small></b>8.1%*</div>
+          <div className="float f2"><b>₹48,00,000</b><small>Approved!</small></div>
         </div>
       </header>
 
